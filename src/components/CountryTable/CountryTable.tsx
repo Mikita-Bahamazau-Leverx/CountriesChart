@@ -3,6 +3,8 @@ import "./countryTable.scss";
 import React, { useState } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
+import { ICountry } from "../../interfaces/objects";
+
 const DEFAULT_CLASSNAME = "country-table";
 const CLASSNAMES = {
   FLAG: `${DEFAULT_CLASSNAME}__flag`,
@@ -62,7 +64,7 @@ const columnsDefs: GridColDef[] = [
 ];
 
 interface CountryTableProps {
-  rows: Partial<GridColDef>[];
+  rows: ICountry[];
 }
 
 const CountryTable = ({ rows }: CountryTableProps) => {

@@ -1,6 +1,8 @@
-import { GridColDef } from "@mui/x-data-grid";
 import React from "react";
+
 import CountryTable from "../../components/CountryTable";
+
+import { ICountry } from "../../interfaces/objects";
 import { rows } from "../../constants/mockedData";
 
 const Home = () => {
@@ -13,7 +15,7 @@ const Home = () => {
     population: row.population,
     languages: row.languages.map((language) => language.name),
     currencies: row.currencies,
-  })) as Partial<GridColDef>[];
+  })) as ICountry[];
 
   return (
     <div className="main__wrapper wrapper">
