@@ -4,6 +4,8 @@ import { createStructuredSelector } from "reselect";
 
 import { ActionCreators, selectors } from "../../store/reducers/country";
 
+import { IGetCountries } from "../../interfaces/country.service";
+
 import Home from "./Home";
 
 const selector = createStructuredSelector({
@@ -13,6 +15,8 @@ const selector = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   getAllCountries: () => ActionCreators.getAllCountries()(dispatch),
+  getCountriesByFilter: (args: IGetCountries) =>
+    ActionCreators.getCountriesByFilter(args)(dispatch),
 });
 
 export default connect(selector, mapDispatchToProps)(Home);
