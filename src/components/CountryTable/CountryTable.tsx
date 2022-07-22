@@ -1,7 +1,9 @@
 import "./countryTable.scss";
 
 import React, { useState } from "react";
+
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { Stack } from "@mui/material";
 
 const DEFAULT_CLASSNAME = "country-table";
 const CLASSNAMES = {
@@ -84,6 +86,13 @@ const CountryTable = ({ tableData, isLoading }: CountryTableProps) => {
         onRowClick={() => console.log("you've clicked on the row")}
         disableColumnSelector
         disableColumnMenu
+        components={{
+          NoRowsOverlay: () => (
+            <Stack height="100%" alignItems="center" justifyContent="center">
+              {"No countries found by your filter"}
+            </Stack>
+          ),
+        }}
       />
     </div>
   );
