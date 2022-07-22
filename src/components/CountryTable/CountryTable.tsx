@@ -77,9 +77,14 @@ interface CountryTableProps {
     totalCount: number;
   };
   isLoading: boolean;
+  onRowClick: (countryId: string) => void;
 }
 
-const CountryTable = ({ tableData, isLoading }: CountryTableProps) => {
+const CountryTable = ({
+  tableData,
+  isLoading,
+  onRowClick,
+}: CountryTableProps) => {
   const [pageSize, setPageSize] = useState(10);
 
   return (
@@ -91,7 +96,9 @@ const CountryTable = ({ tableData, isLoading }: CountryTableProps) => {
         pageSize={pageSize}
         onPageSizeChange={(pageSize) => setPageSize(pageSize)}
         rowsPerPageOptions={[10, 25, 50, 100]}
-        onRowClick={() => console.log("you've clicked on the row")}
+        onRowClick={(params) => {
+          onRowClick(params.row.id);
+        }}
         disableColumnSelector
         disableColumnMenu
         components={{

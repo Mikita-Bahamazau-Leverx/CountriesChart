@@ -10,7 +10,7 @@ import Countries from "./Countries";
 
 const selector = createStructuredSelector({
   countries: selectors.countries,
-  isLoadingCountries: selectors.isLoadingCountry,
+  isLoadingCountries: selectors.isLoadingCountries,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

@@ -11,6 +11,7 @@ import { ICountryList } from "../../interfaces/objects";
 import { IGetCountries } from "../../interfaces/country.service";
 
 import { countryFilterOptions } from "../../constants/countries";
+import { useNavigate } from "react-router-dom";
 
 const DEFAULT_CLASSNAME = "countries-page";
 const CLASSNAMES = {
@@ -30,6 +31,11 @@ const Countries = ({
   getAllCountries,
   getCountriesByFilter,
 }: CountriesProps) => {
+  const navigate = useNavigate();
+
+  const navigateToCountry = (countryId: string) =>
+    navigate(`/country/${countryId}`);
+
   const [selectedOption, setSelectedOption] = useState(countryFilterOptions[0]);
 
   const [search, setSearch] = useState("");
@@ -64,7 +70,11 @@ const Countries = ({
           search={search}
           setSearchQuery={setSearchQuery}
         />
-        <CountryTable tableData={countries} isLoading={isLoadingCountries} />
+        <CountryTable
+          tableData={countries}
+          isLoading={isLoadingCountries}
+          onRowClick={navigateToCountry}
+        />
       </main>
     </div>
   );
