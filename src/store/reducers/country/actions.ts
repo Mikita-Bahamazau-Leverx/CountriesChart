@@ -4,12 +4,22 @@ import CountryService from "../../../services/countries.service";
 
 import { defaultAction } from "../../../helpers/defaultAction";
 
-import { IGetCountry } from "interfaces/country.service";
+import {
+  IGetCountries,
+  IGetCountry,
+} from "../../../interfaces/country.service";
 
 export const getAllCountries = () => {
   return defaultAction({
     apiFunction: () => CountryService.getAllCountries(),
     types: types.getAllCountriesTypes,
+  });
+};
+
+export const getCountriesByFilter = ({ search, filter }: IGetCountries) => {
+  return defaultAction({
+    apiFunction: () => CountryService.getCountriesByFilter({ search, filter }),
+    types: types.getCountriesTypes,
   });
 };
 

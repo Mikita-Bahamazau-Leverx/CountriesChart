@@ -1,7 +1,7 @@
 import { ICountry } from "./objects";
 
 export interface ICountryState {
-  currentCountry: ICountry;
+  currentCountry: ICountry | null;
   countries: {
     data: ICountry[];
     totalCount: number;

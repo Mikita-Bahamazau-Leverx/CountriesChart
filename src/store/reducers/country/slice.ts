@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { getCountryTypes, getAllCountriesTypes } from "./actionTypes";
+import {
+  getCountryTypes,
+  getAllCountriesTypes,
+  getCountriesTypes,
+} from "./actionTypes";
 
 import { isAnyOfMatch } from "../../../helpers/objects";
 import { formatCountries, formatCountry } from "../../../helpers/countries";
@@ -10,7 +14,7 @@ import { ICountryState } from "../../../interfaces/store";
 const CountrySlice = createSlice({
   name: "countryState",
   initialState: {
-    currentCountry: {},
+    currentCountry: null,
     countries: {
       data: [],
       totalCount: 0,
@@ -21,7 +25,11 @@ const CountrySlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addMatcher(
-        isAnyOfMatch(getCountryTypes.start, getAllCountriesTypes.start),
+        isAnyOfMatch(
+          getCountryTypes.start,
+          getAllCountriesTypes.start,
+          getCountriesTypes.start
+        ),
         (state) => {
           state.isLoadingCountry = true;
         }
@@ -30,7 +38,7 @@ const CountrySlice = createSlice({
         state.currentCountry = formatCountry(data);
       })
       .addMatcher(
-        isAnyOfMatch(getAllCountriesTypes.success),
+        isAnyOfMatch(getAllCountriesTypes.success, getCountriesTypes.success),
         (state, { data }) => {
           const formattedList = formatCountries(data.data);
           state.countries = {
@@ -40,13 +48,30 @@ const CountrySlice = createSlice({
         }
       )
       .addMatcher(
-        isAnyOfMatch(getCountryTypes.success, getAllCountriesTypes.success),
+        isAnyOfMatch(
+          getCountryTypes.success,
+          getAllCountriesTypes.success,
+          getCountriesTypes.success
+        ),
         (state) => {
           state.isLoadingCountry = false;
         }
       )
       .addMatcher(
-        isAnyOfMatch(getCountryTypes.error, getAllCountriesTypes.error),
+        isAnyOfMatch(getAllCountriesTypes.error, getCountriesTypes.error),
+        (state) => {
+          state.countries = {
+            data: [],
+            totalCount: 0,
+          };
+        }
+      )
+      .addMatcher(
+        isAnyOfMatch(
+          getCountryTypes.error,
+          getAllCountriesTypes.error,
+          getCountriesTypes.error
+        ),
         (state) => {
           state.isLoadingCountry = false;
         }
