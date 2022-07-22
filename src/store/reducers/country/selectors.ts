@@ -20,3 +20,8 @@ export const isLoadingCountry = createSelector(
   getCountryState,
   (countryState) => countryState.isLoadingCountry
 );
+
+export const isLoadingCountries = createSelector(
+  getCountryState,
+  (countryState) => countryState.isLoadingCountries
+);

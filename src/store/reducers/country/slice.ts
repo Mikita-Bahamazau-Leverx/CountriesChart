@@ -19,23 +19,23 @@ const CountrySlice = createSlice({
       data: [],
       totalCount: 0,
     },
+    isLoadingCountries: false,
     isLoadingCountry: false,
   } as unknown as ICountryState,
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addMatcher(
-        isAnyOfMatch(
-          getCountryTypes.start,
-          getAllCountriesTypes.start,
-          getCountriesTypes.start
-        ),
+        isAnyOfMatch(getAllCountriesTypes.start, getCountriesTypes.start),
         (state) => {
-          state.isLoadingCountry = true;
+          state.isLoadingCountries = true;
         }
       )
+      .addMatcher(isAnyOfMatch(getCountryTypes.start), (state) => {
+        state.isLoadingCountry = true;
+      })
       .addMatcher(isAnyOfMatch(getCountryTypes.success), (state, { data }) => {
-        state.currentCountry = formatCountry(data);
+        state.currentCountry = formatCountry(data[0]);
       })
       .addMatcher(
         isAnyOfMatch(getAllCountriesTypes.success, getCountriesTypes.success),
@@ -48,15 +48,14 @@ const CountrySlice = createSlice({
         }
       )
       .addMatcher(
-        isAnyOfMatch(
-          getCountryTypes.success,
-          getAllCountriesTypes.success,
-          getCountriesTypes.success
-        ),
+        isAnyOfMatch(getAllCountriesTypes.success, getCountriesTypes.success),
         (state) => {
-          state.isLoadingCountry = false;
+          state.isLoadingCountries = false;
         }
       )
+      .addMatcher(isAnyOfMatch(getCountryTypes.success), (state) => {
+        state.isLoadingCountry = false;
+      })
       .addMatcher(
         isAnyOfMatch(getAllCountriesTypes.error, getCountriesTypes.error),
         (state) => {
@@ -67,15 +66,14 @@ const CountrySlice = createSlice({
         }
       )
       .addMatcher(
-        isAnyOfMatch(
-          getCountryTypes.error,
-          getAllCountriesTypes.error,
-          getCountriesTypes.error
-        ),
+        isAnyOfMatch(getAllCountriesTypes.error, getCountriesTypes.error),
         (state) => {
-          state.isLoadingCountry = false;
+          state.isLoadingCountries = false;
         }
-      );
+      )
+      .addMatcher(isAnyOfMatch(getCountryTypes.error), (state) => {
+        state.isLoadingCountry = false;
+      });
   },
 });
 
