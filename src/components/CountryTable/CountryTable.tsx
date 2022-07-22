@@ -49,6 +49,7 @@ const columnsDefs: GridColDef[] = [
     headerName: "Languages",
     width: 130,
     sortable: false,
+    valueFormatter: ({ value }) => value || "-",
   },
   {
     field: "currencies",
@@ -64,7 +65,7 @@ const columnsDefs: GridColDef[] = [
               currency.name
             }`}</p>
           );
-        }) || <p>{"No currencies"}</p>
+        }) || <p>{"-"}</p>
       );
     },
   },
