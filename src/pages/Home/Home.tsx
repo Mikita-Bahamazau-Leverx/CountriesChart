@@ -1,27 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import CountryTable from "../../components/CountryTable";
 
-import { ICountry } from "../../interfaces/objects";
-import { rows } from "../../constants/mockedData";
+import { ICountryList } from "../../interfaces/objects";
 
-const Home = () => {
-  const mappedRows = rows.map((row) => ({
-    flag: row.flag,
-    countryName: row.name,
-    region: row.region,
-    id: row.numericCode,
-    key: row.numericCode,
-    population: row.population,
-    languages: row.languages.map((language) => language.name),
-    currencies: row.currencies,
-  })) as ICountry[];
+interface HomeProps {
+  countries: ICountryList;
+  isLoadingCountries: boolean;
+  getAllCountries: () => void;
+}
+
+const Home = ({
+  countries,
+  isLoadingCountries,
+  getAllCountries,
+}: HomeProps) => {
+  useEffect(() => {
+    getAllCountries();
+  }, []);
 
   return (
     <div className="main__wrapper wrapper">
       <main className="main">
-        <CountryTable rows={mappedRows} />
         Lorem ipsum dolor sit amet.
+        <CountryTable tableData={countries} isLoading={isLoadingCountries} />
       </main>
     </div>
   );

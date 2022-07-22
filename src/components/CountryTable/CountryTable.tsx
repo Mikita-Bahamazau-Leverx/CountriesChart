@@ -3,8 +3,6 @@ import "./countryTable.scss";
 import React, { useState } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
-import { ICountry } from "../../interfaces/objects";
-
 const DEFAULT_CLASSNAME = "country-table";
 const CLASSNAMES = {
   FLAG: `${DEFAULT_CLASSNAME}__flag`,
@@ -64,22 +62,28 @@ const columnsDefs: GridColDef[] = [
 ];
 
 interface CountryTableProps {
-  rows: ICountry[];
+  tableData: {
+    data: Record<string, any>[];
+    totalCount: number;
+  };
+  isLoading: boolean;
 }
 
-const CountryTable = ({ rows }: CountryTableProps) => {
+const CountryTable = ({ tableData, isLoading }: CountryTableProps) => {
   const [pageSize, setPageSize] = useState(10);
 
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid
-        rows={rows}
+        rows={tableData.data}
+        loading={isLoading}
         columns={columnsDefs}
         pageSize={pageSize}
         onPageSizeChange={(pageSize) => setPageSize(pageSize)}
         rowsPerPageOptions={[10, 25, 50, 100]}
         onRowClick={() => console.log("you've clicked on the row")}
         disableColumnSelector
+        disableColumnMenu
       />
     </div>
   );
