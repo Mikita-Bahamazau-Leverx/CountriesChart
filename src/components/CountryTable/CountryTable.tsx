@@ -23,7 +23,7 @@ const columnsDefs: GridColDef[] = [
     },
   },
   {
-    field: "countryName",
+    field: "name",
     headerName: "Country name",
     minWidth: 100,
     maxWidth: 450,
