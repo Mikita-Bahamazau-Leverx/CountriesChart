@@ -8,7 +8,7 @@ export default class ApiService {
     }),
   };
 
-  static baseUrl = "https://restcountries.com/v2/";
+  static baseUrl = "https://restcountries.com/v3.1/";
 
   static async request({ api, options }: IRequest) {
     try {

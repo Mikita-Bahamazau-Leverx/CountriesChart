@@ -54,9 +54,7 @@ const columnsDefs: GridColDef[] = [
     renderCell: (params) => {
       return params.row.currencies?.map((currency: Record<string, any>) => {
         return (
-          <p>
-            {currency.symbol}: {currency.name}
-          </p>
+          <p>{`${currency.symbol}${currency.symbol && ": "}{currency.name}`}</p>
         );
       });
     },
