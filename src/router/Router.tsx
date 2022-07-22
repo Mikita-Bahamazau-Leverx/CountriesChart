@@ -13,6 +13,7 @@ const Router = () => {
       <BrowserRouter>
         <Header />
         <Routes>
+          <Route path="/country/:countryId" element={<Country />} />
           <Route path="/countries" element={<Countries />} />
           <Route path="/" element={<Home />} />
         </Routes>
