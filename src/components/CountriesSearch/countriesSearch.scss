@@ -1,0 +1,14 @@
+@import "../../constants/styles.scss";
+
+.countries-search {
+  &__wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid $gray-border-clr;
+    border-radius: 4px;
+    border-bottom: none;
+    padding: 10px;
+  }
+}
