@@ -8,6 +8,7 @@ export interface ICountryState {
     [key: string]: unknown;
   };
   isLoadingCountry: boolean;
+  isLoadingCountries: boolean;
 }
 
 export default interface IStoreState {
