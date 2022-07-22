@@ -44,7 +44,12 @@ const columnsDefs: GridColDef[] = [
     maxWidth: 190,
     flex: 0.4,
   },
-  { field: "languages", headerName: "Languages", width: 130, sortable: false },
+  {
+    field: "languages",
+    headerName: "Languages",
+    width: 130,
+    sortable: false,
+  },
   {
     field: "currencies",
     headerName: "Currencies",
@@ -52,11 +57,15 @@ const columnsDefs: GridColDef[] = [
     flex: 1,
     sortable: false,
     renderCell: (params) => {
-      return params.row.currencies?.map((currency: Record<string, any>) => {
-        return (
-          <p>{`${currency.symbol}${currency.symbol && ": "}{currency.name}`}</p>
-        );
-      });
+      return (
+        params.row.currencies?.map((currency: Record<string, any>) => {
+          return (
+            <p>{`${currency.symbol}${currency.symbol && ": "}${
+              currency.name
+            }`}</p>
+          );
+        }) || <p>{"No currencies"}</p>
+      );
     },
   },
 ];
