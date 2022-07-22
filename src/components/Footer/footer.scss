@@ -1,8 +1,11 @@
+@import "../../constants/styles.scss";
+
 .foot__wrapper {
-  background: #1560bc;
+  background: $blue-back-clr;
 
   .foot {
     display: flex;
     justify-content: space-between;
+    font-weight: 600;
   }
 }
