@@ -29,7 +29,7 @@ const Header = () => {
         <nav className={CLASSNAMES.NAVIGATION}>
           <ul className={CLASSNAMES.NAVIGATION_LIST}>
             <li className={CLASSNAMES.NAVIGATION_ITEM}>
-              <NavLink to="/" exact className={CLASSNAMES.NAVIGATION_LINK}>
+              <NavLink to="/" className={CLASSNAMES.NAVIGATION_LINK}>
                 Home
               </NavLink>
             </li>

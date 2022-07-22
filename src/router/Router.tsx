@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const Header = React.lazy(() => import("../components/Header"));
 const Footer = React.lazy(() => import("../components/Footer"));
@@ -12,14 +12,10 @@ const Router = () => {
     <Suspense fallback={<div className="loading">Loading</div>}>
       <BrowserRouter>
         <Header />
-        <Switch>
-          <Route path="/countries">
-            <Countries />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/countries" element={<Countries />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
         <Footer />
       </BrowserRouter>
     </Suspense>
