@@ -14,3 +14,8 @@ export interface ICountry {
   languages: string[];
   currencies: ICurrency[];
 }
+
+export interface ICountryList {
+  data: ICountry[];
+  totalCount: number;
+}
