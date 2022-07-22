@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import CountriesSearch from "../../components/CountriesSearch";
 import CountryTable from "../../components/CountryTable";
 
+import useDebounce from "../../hooks/useDebounce";
+
 import { ICountryList } from "../../interfaces/objects";
 import { IGetCountries } from "../../interfaces/country.service";
 
@@ -30,6 +32,8 @@ const Home = ({
 
   const [search, setSearch] = useState("");
 
+  const debouncedSearch = useDebounce(search, 200);
+
   const setSearchQuery = (value: string) => {
     setSearch(value);
   };
@@ -39,12 +43,12 @@ const Home = ({
   }, []);
 
   useEffect(() => {
-    if (search) {
-      getCountriesByFilter({ search, filter: selectedOption });
+    if (debouncedSearch) {
+      getCountriesByFilter({ search: debouncedSearch, filter: selectedOption });
     } else {
       getAllCountries();
     }
-  }, [selectedOption, search]);
+  }, [selectedOption, debouncedSearch]);
 
   return (
     <div className="main__wrapper wrapper">
