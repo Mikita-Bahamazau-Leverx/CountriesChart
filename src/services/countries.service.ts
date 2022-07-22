@@ -14,6 +14,6 @@ export default class CountryService extends ApiService {
   }
 
   static async getCountry(countryId: IGetCountry) {
-    return super.get({ api: `country/${countryId}`, options: {} });
+    return super.get({ api: `alpha/${countryId}`, options: {} });
   }
 }
