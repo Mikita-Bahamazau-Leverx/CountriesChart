@@ -1,0 +1,21 @@
+@import "../../constants/styles.scss";
+
+.country-selector {
+  &__wrapper {
+    min-width: $dim-px-200;
+    width: 42.5%;
+    flex-grow: 100;
+  }
+
+  &__selected-item {
+    display: flex;
+    justify-content: space-between;
+    gap: $dim-px-10;
+    height: $dim-px-50;
+    padding-block: $dim-px-5;
+  }
+
+  &__select-field {
+    width: $dim-px-150;
+  }
+}

@@ -9,17 +9,19 @@ const Country = React.lazy(() => import("../pages/Country"));
 
 const Router = () => {
   return (
-    <Suspense fallback={<div className="loading">Loading</div>}>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/country/:countryId" element={<Country />} />
-          <Route path="/countries" element={<Countries />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </Suspense>
+    <main className="main">
+      <Suspense fallback={<div className="loading">Loading</div>}>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/country/:countryId" element={<Country />} />
+            <Route path="/countries" element={<Countries />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </Suspense>
+    </main>
   );
 };
 
