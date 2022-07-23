@@ -2,8 +2,6 @@ import "./searchBar.scss";
 
 import React from "react";
 
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 
 interface SearchBarProps {
@@ -26,9 +24,6 @@ const SearchBar = ({ search, setSearchQuery }: SearchBarProps) => {
         placeholder="Search..."
         size="small"
       />
-      <IconButton type="submit" aria-label="search">
-        <SearchIcon style={{ fill: "blue" }} />
-      </IconButton>
     </form>
   );
 };
