@@ -1,0 +1,29 @@
+@import "../../constants/styles.scss";
+
+.module-header {
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $padding-module-app;
+    border-bottom: 1px solid $gray-border-clr;
+    background: inherit;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: $dim-px-5;
+  }
+
+  &__title {
+    font-size: $dim-px-16;
+    line-height: $dim-px-17;
+    text-transform: uppercase;
+    color: $color-text-primary;
+    mix-blend-mode: normal;
+    opacity: 0.87;
+  }
+}

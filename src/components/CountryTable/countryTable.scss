@@ -1,0 +1,9 @@
+@import "../../constants/styles.scss";
+
+.country-table {
+  &__flag {
+    width: $dim-px-90;
+    height: 100%;
+    object-fit: cover;
+  }
+}

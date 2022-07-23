@@ -1,0 +1,11 @@
+@import url(./assets/normalize/normalize.css);
+@import "./constants/styles.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  padding-inline: $dim-px-20;
+}
