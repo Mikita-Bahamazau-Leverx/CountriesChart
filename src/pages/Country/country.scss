@@ -1,0 +1,8 @@
+@import "../../constants/styles.scss";
+
+.country-page {
+  &__wrapper {
+    height: calc(100vh - $dim-px-100);
+    padding-block: $dim-px-15;
+  }
+}

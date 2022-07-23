@@ -41,6 +41,9 @@ const CountriesSearch = ({
           inputProps={{
             id: "countries-select",
           }}
+          sx={{
+            width: 120,
+          }}
         >
           {options.map((option) => {
             return <MenuItem value={option}>{option}</MenuItem>;

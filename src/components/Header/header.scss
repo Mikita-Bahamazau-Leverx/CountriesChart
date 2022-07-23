@@ -2,11 +2,11 @@
 
 .app-header {
   display: flex;
-  // justify-content: space-between;
   gap: $dim-px-30;
   align-items: center;
 
   &__wrapper {
+    height: $dim-px-50;
     background: $blue-back-clr;
   }
 

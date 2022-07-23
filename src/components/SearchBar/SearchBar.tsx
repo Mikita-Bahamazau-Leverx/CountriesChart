@@ -2,9 +2,12 @@ import "./searchBar.scss";
 
 import React from "react";
 
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
+
+const DEFAULT_CLASSNAME = "search-bar";
+const CLASSNAMES = {
+  TEXT_FIELD: `${DEFAULT_CLASSNAME}__text-field`,
+};
 
 interface SearchBarProps {
   search: string;
@@ -16,7 +19,7 @@ const SearchBar = ({ search, setSearchQuery }: SearchBarProps) => {
     <form>
       <TextField
         id="search-bar"
-        className="text"
+        className={CLASSNAMES.TEXT_FIELD}
         value={search}
         onChange={(e) => {
           setSearchQuery(e.target.value);
@@ -24,11 +27,7 @@ const SearchBar = ({ search, setSearchQuery }: SearchBarProps) => {
         label="Enter your request"
         variant="outlined"
         placeholder="Search..."
-        size="small"
       />
-      <IconButton type="submit" aria-label="search">
-        <SearchIcon style={{ fill: "blue" }} />
-      </IconButton>
     </form>
   );
 };

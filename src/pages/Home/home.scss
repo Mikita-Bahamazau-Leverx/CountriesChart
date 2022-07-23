@@ -2,6 +2,7 @@
 
 .home-page {
   &__wrapper {
+    height: calc(100vh - $dim-px-100);
     display: flex;
     padding-block: $dim-px-15;
     gap: $dim-px-20;
