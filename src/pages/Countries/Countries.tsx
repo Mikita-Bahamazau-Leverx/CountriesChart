@@ -1,6 +1,9 @@
 import "./countries.scss";
 
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import classnames from "classnames";
 
 import CountriesSearch from "../../components/CountriesSearch";
 import CountryTable from "../../components/CountryTable";
@@ -11,10 +14,10 @@ import { ICountryList } from "../../interfaces/objects";
 import { IGetCountries } from "../../interfaces/country.service";
 
 import { countryFilterOptions } from "../../constants/countries";
-import { useNavigate } from "react-router-dom";
 
 const DEFAULT_CLASSNAME = "countries-page";
 const CLASSNAMES = {
+  WRAPPER: `${DEFAULT_CLASSNAME}__wrapper`,
   SEARCH_BAR: `${DEFAULT_CLASSNAME}__search-bar`,
 };
 
@@ -59,23 +62,20 @@ const Countries = ({
   }, [selectedOption, debouncedSearch]);
 
   return (
-    <div className="main__wrapper wrapper">
-      <main className="main">
-        Lorem ipsum dolor sit amet.
-        <CountriesSearch
-          className={CLASSNAMES.SEARCH_BAR}
-          selectedOption={selectedOption}
-          options={countryFilterOptions}
-          setSelectedOption={setSelectedOption}
-          search={search}
-          setSearchQuery={setSearchQuery}
-        />
-        <CountryTable
-          tableData={countries}
-          isLoading={isLoadingCountries}
-          onRowClick={navigateToCountry}
-        />
-      </main>
+    <div className={classnames(CLASSNAMES.WRAPPER, "wrapper")}>
+      <CountriesSearch
+        className={CLASSNAMES.SEARCH_BAR}
+        selectedOption={selectedOption}
+        options={countryFilterOptions}
+        setSelectedOption={setSelectedOption}
+        search={search}
+        setSearchQuery={setSearchQuery}
+      />
+      <CountryTable
+        tableData={countries}
+        isLoading={isLoadingCountries}
+        onRowClick={navigateToCountry}
+      />
     </div>
   );
 };

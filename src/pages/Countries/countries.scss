@@ -1,4 +1,11 @@
+@import "../../constants/styles.scss";
+
 .countries-page {
+  &__wrapper {
+    height: calc(100vh - $dim-px-100);
+    align-items: center;
+  }
+
   &__search-bar {
     width: 100%;
   }
