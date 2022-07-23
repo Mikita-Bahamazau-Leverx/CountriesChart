@@ -1,0 +1,10 @@
+@import "../../constants/styles.scss";
+
+.home-page {
+  &__wrapper {
+    display: flex;
+    padding-block: $dim-px-15;
+    gap: $dim-px-20;
+    flex-wrap: wrap;
+  }
+}
