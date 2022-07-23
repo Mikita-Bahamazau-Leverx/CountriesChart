@@ -1,7 +1,9 @@
+@import "../../constants/styles.scss";
+
 .country-table {
   &__flag {
-    width: 100%;
+    width: $dim-px-90;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 }
