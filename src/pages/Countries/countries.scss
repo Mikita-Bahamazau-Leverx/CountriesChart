@@ -2,8 +2,10 @@
 
 .countries-page {
   &__wrapper {
+    display: flex;
+    flex-direction: column;
     height: calc(100vh - $dim-px-100);
-    align-items: center;
+    padding-block: $dim-px-15;
   }
 
   &__search-bar {

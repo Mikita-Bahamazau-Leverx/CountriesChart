@@ -4,7 +4,6 @@
   &__wrapper {
     height: calc(100vh - $dim-px-100);
     display: flex;
-    align-items: center;
     padding-block: $dim-px-15;
     gap: $dim-px-20;
     flex-wrap: wrap;
