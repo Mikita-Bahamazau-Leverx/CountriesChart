@@ -21,3 +21,9 @@ export interface ICountryList {
   data: ICountry[];
   totalCount: number;
 }
+
+export type ISelectedItem = {
+  id: number;
+  name?: string;
+  region?: string;
+};
