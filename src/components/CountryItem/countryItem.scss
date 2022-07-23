@@ -4,6 +4,7 @@
   &__wrapper {
     display: flex;
     align-items: start;
+    flex-wrap: wrap;
     gap: $dim-px-20;
     padding: $padding-module-app;
   }
@@ -17,8 +18,8 @@
   &__details {
     display: flex;
     gap: $dim-px-30 10%;
-    width: 100%;
     flex-wrap: wrap;
+    flex-grow: 10;
   }
 
   &__main-details {
