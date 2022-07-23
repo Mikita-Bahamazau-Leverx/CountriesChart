@@ -2,15 +2,7 @@ import "./dataChart.scss";
 
 import React from "react";
 
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from "recharts";
 
 interface AxisDefs {
   x: string;
@@ -35,7 +27,6 @@ const DataChart = ({ data, axisDefs }: DataChartProps) => {
         bottom: 5,
       }}
     >
-      <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey={axisDefs.x} />
       <YAxis />
       <Tooltip />
